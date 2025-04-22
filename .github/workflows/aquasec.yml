@@ -44,7 +44,7 @@ jobs:
             --access-token "${{ secrets.GITHUB_TOKEN }}" \
             --aqua-key "${{ secrets.AQUA_KEY }}" \
             --aqua-secret "${{ secrets.AQUA_SECRET }}" \
-            --cspm-url https://stage.api.cloudsploit.com \
+            --cspm-url "https://stage.api.cloudsploit.com" \
             --artifact-path "$DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG"
 
             # The docker image name:tag of the newly built image
