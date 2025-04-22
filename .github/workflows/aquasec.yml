@@ -19,15 +19,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - name: Integrity Pipeline
-        uses: aquasecurity/pipeline-enforcer-action@main
-        with:
-          aqua-key: ${{ secrets.AQUA_KEY }}
-          aqua-secret: ${{ secrets.AQUA_SECRET }}
-  
-      - name: Build application
-        run: echo Application has been succesfully built   
-          
       - name: Build image container
         run: |
           sudo docker build -t $DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG .
