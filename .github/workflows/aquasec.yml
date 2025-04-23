@@ -5,10 +5,10 @@ on:
       - main
 
 env:
-   DOCKER_REPOSITORY: guyyakir # name of Docker Hub ID
+   DOCKER_REPOSITORY: guyyakir  # name of Docker Hub ID
    IMAGE_NAME: gh-nodejs-app
    IMAGE_TAG: ${{ github.run_number }} # $GITHUB_RUN_NUMBER
-#test3
+#test4
 
 jobs:
   CI-Build:
@@ -41,16 +41,16 @@ jobs:
           BINDIR="." sh install.sh
           rm install.sh install.sh.checksum
           ./billy generate \
-            --access-token "${{ secrets.GITHUB_TOKEN }}" \
-            --aqua-key "${{ secrets.AQUA_KEY }}" \
-            --aqua-secret "${{ secrets.AQUA_SECRET }}" \
-            --cspm-url https://stage.api.cloudsploit.com \
-            --artifact-path "$DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG"
+             --access-token "${{ secrets.GITHUB_TOKEN }}" \
+             --aqua-key "${{ secrets.AQUA_KEY }}" \
+             --aqua-secret "${{ secrets.AQUA_SECRET }}" \
+             --cspm-url https://stage.api.cloudsploit.com \
+             --artifact-path "$DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG"
 
-            # The docker image name:tag of the newly built image
-            # --artifact-path "my-image-name:${{ env.tag-version }}" 
-            # OR the path to the root folder of your project. I.e my-repo/my-app 
-            ## --artifact-path "${{env.MY_APP_ROOT}}"
-            
+             # The docker image name:tag of the newly built image
+             # --artifact-path "my-image-name:${{ env.tag-version }}" 
+             # OR the path to the root folder of your project. I.e my-repo/my-app 
+             ## --artifact-path "${{env.MY_APP_ROOT}}"
+             
 #https://nicwortel.nl/blog/2022/continuous-deployment-to-kubernetes-with-github-actions
 #https://nicwortel.nl/blog/2020/simple-kubernetes-deployment-versioning
